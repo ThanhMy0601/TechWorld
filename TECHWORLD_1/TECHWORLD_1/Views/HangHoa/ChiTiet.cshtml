@@ -1,0 +1,512 @@
+﻿@model HangHoa
+@{
+    Layout = "~/Views/Shared/_frontEnd.cshtml";
+}
+
+
+@section metasocials{
+    <meta property="og:url" content="https://techworld.azurewebsites.net/san-pham/@Model.MaHh/@Model.TenHhSeoUrl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@Model.TenHh" />
+    <meta property="og:description" content="@Model.MoTaChung" />
+    <meta property="og:image" content="https://techworld.azurewebsites.net/HangHoa/@Model.Hinh" />
+}
+
+<style>
+    /******************************************
+    28. products tabs
+    ******************************************/
+
+    .product-tabs {
+        line-height: normal;
+        margin: 0;
+        outline: none;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        border-bottom: 1px solid #e5e5e5;
+        margin-top: 5px;
+        text-align: left;
+        width: 100%;
+        margin-bottom: -1px;
+    }
+
+        .product-tabs li a {
+            border-bottom: none;
+            color: #333;
+            margin-right: 25px;
+            text-decoration: none;
+            text-transform: capitalize;
+            font-size: 23px;
+            font-weight: 600;
+            transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s, background-position 300ms ease-in-out 0s;
+            padding: 0 20px;
+            letter-spacing: 0.5px;
+        }
+
+    #product-detail-tab.nav-tabs > li {
+        float: none;
+        display: inline-block
+    }
+
+    .nav-tabs.product-tabs > li > a {
+        line-height: 1.42857143;
+        border: none;
+        border-bottom: 1px solid #fff;
+        border-right: 0px solid #eee;
+        padding: 10px 0px;
+        background: #fff;
+        text-transform: uppercase;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        background: #fff;
+        border: none;
+        border-bottom: 2px solid #e83f33;
+        border-right: 0px solid #eee;
+        color: #0e8ce4
+    }
+
+    .nav-tabs > li > a:hover {
+        background: #fff;
+        color: #0e8ce4;
+        border: none;
+        border-bottom: 2px solid #0e8ce4;
+        border-right: 0px solid #eee;
+    }
+
+    .tab-content {
+        padding: 5px 0px 0px 0px;
+        overflow: hidden;
+        font-size: 13px;
+        line-height: 20px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        color: #999;
+    }
+
+        .tab-content > .active {
+            margin-top: 0px;
+            padding: 0px;
+        }
+
+    #productTabContent.tab-content > .active {
+        margin-top: 0px;
+        padding: 0px 0px 12px;
+    }
+
+    .form-add-tags input.input-text, select, textarea {
+        border: 1px solid #e5e5e5;
+        margin-top: 0;
+        padding: 5px 10px 7px;
+        width: 35%;
+        background: #fff;
+        border-radius: 3px;
+    }
+
+    button.button.add-tags {
+        margin-left: -5px;
+        background: #e83f33;
+        border: 1px solid #e83f33;
+        color: #fff
+    }
+
+    .form-add-tags {
+        text-align: center
+    }
+
+        .form-add-tags h2 {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+    .product-overview-tab .form-area {
+        margin: 15px 0 0
+    }
+
+        .product-overview-tab .form-area .form-element input, textarea {
+            background: #fff none repeat scroll 0 0;
+            border: 1px solid #e5e5e5;
+            padding: 5px;
+            width: 60%;
+            height: 34px
+        }
+
+        .product-overview-tab .form-area .form-element textarea {
+            height: 170px;
+            width: 700px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 5px;
+            border-radius: 3px
+        }
+
+    .product-overview-tab .buttons-set {
+        border: none;
+        border-top: 1px solid #e5e5e5;
+        margin: 20px 0 0;
+        padding: 8px 0 0;
+        text-align: right;
+        width: 710px
+    }
+
+    .tag-content .form-element {
+        overflow: hidden
+    }
+
+        .tag-content .form-element input {
+            height: 40px;
+            width: 299px;
+            float: left;
+            margin-right: 5px
+        }
+
+    .form-element label, .ck-box label {
+        color: #333333;
+        display: block;
+        font-weight: 600;
+        text-transform: capitalize;
+        margin: 10px auto 14px;
+        font-size: 18px;
+        color: #0e8ce4
+    }
+
+        .form-element label em {
+            color: #f22e3b;
+            font-family: arial;
+            font-style: normal
+        }
+
+    .span-tinh-trang-con-hang {
+        color: #fff;
+        background-color: #5cb85c;
+        padding: 10px 15px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 3px;
+    }
+
+    .span-tinh-trang-sap-het-hang {
+        color: #1224a1;
+        background-color: yellow;
+        padding: 10px 15px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 3px;
+    }
+
+    .span-tinh-trang-da-het-hang {
+        color: #fff;
+        background-color: red;
+        padding: 10px 15px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 3px;
+    }
+</style>
+
+<!-- Single Product -->
+
+<div class="single_product" style="padding-bottom:85px;">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- Images -->
+            <div class="col-lg-2 order-lg-1 order-2">
+                <ul class="image_list">
+                    <li data-image="HangHoa/@Model.Hinh"><img src="~/HangHoa/@Model.Hinh" alt=""></li>
+                    <li data-image="HangHoa/@Model.Hinh"><img src="~/HangHoa/@Model.Hinh" alt=""></li>
+                    <li data-image="HangHoa/@Model.Hinh"><img src="~/HangHoa/@Model.Hinh" alt=""></li>
+                </ul>
+            </div>
+
+            <!-- Selected Image -->
+            <div class="col-lg-5 order-lg-2 order-1">
+                <div class="image_selected"><img src="~/HangHoa/@Model.Hinh" alt="" style="width:377px;"></div>
+            </div>
+
+            <!-- Description -->
+            <div class="col-lg-5 order-3">
+                <div class="product_description">
+                    <div class="product_category"></div>
+                    <h1 class="product_name" style="font-family:serif;font-weight:900;width:500px;">@Model.TenHh</h1>
+                    <div>
+                        <ul style="list-style-type: disc;color:#a3a1a1;margin-bottom:7px;margin-left:47px;font-style: italic;">
+                            <li>
+                                <h6 style="font-size:13px;font-weight:400;">Hàng chính hãng, nguyên seal, mới 100%, chưa Active.</h6>
+                            </li>
+                            <li>
+                                <h6 style="font-size:13px;font-weight:400;">Miễn phí giao hàng toàn quốc</h6>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="border-top: 1px solid #c0bbbba6;width:570px;"></div>
+                    <div style="margin:35px 0 27px; height:20px;">
+                        @{
+                            double giamgia = Model.GiamGia * 100;
+                        }
+                        @if (giamgia > 0)
+                        {
+                            <div style="float:left;font-size:27px;font-family:serif;font-weight:bold;height:45px;color:#14a1e5;;">
+                                GIẢM GIÁ:
+                                <span style="color:red; font-size:38px;">
+                                    @giamgia %
+                                </span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div style="float:left;font-size:27px;font-family:serif;font-weight:bold;height:45px;color:#14a1e5;;">
+                                <span style="color:red; font-size:38px;">
+                                </span>
+                            </div>
+                        }
+                        @if (Model.SoLuong > 10)
+                        {
+                            <div style="float:right;height:45px;margin-right:-90px;color:gray;font-size:21px;margin-top:10px;">
+                                Tình trạng:
+                                <span class="span-tinh-trang-con-hang">
+                                    Còn hàng
+                                </span>
+                            </div>
+                        }
+                        else if (Model.SoLuong > 0)
+                        {
+                            <div style="float:right;height:45px;margin-right:-90px;color:gray;font-size:21px;margin-top:10px;">
+                                Tình trạng:
+                                <span class="span-tinh-trang-sap-het-hang">
+                                    Sắp hết hàng
+                                </span>
+                            </div>
+                        }
+                        else
+                        {
+                            <div style="float:right;height:45px;margin-right:-90px;color:gray;font-size:21px;margin-top:10px;">
+                                Tình trạng:
+                                <span class="span-tinh-trang-da-het-hang">
+                                    Đã hết hàng
+                                </span>
+                            </div>
+                        }
+
+                    </div>
+                    <div style="border-top: 1px solid #c0bbbba6;width:570px;"></div>
+                    <div class="order_info d-flex flex-row" style="margin-top:0px;float:left;">
+                        <form asp-action="AddToCart" asp-controller="GioHang" asp-route-mahh="@Model.MaHh" method="post">
+
+                            @{
+                                double giaban = Model.DonGia * (1 - Model.GiamGia);
+                            }
+                            <div class="product_price" style="color:red;font-size:31px;margin-top:32px;">@giaban.ToString("#,##0") đ<span>@Model.DonGia.ToString("#,##0") đ</span></div>
+                            <div style="border-top: 1px solid #c0bbbba6;width:570px;"></div>
+                            <div class="clearfix" style="z-index: 1000;margin: 20px 0px 9px;">
+
+                                <input type="hidden" name="mahh" value="@Model.MaHh" />
+
+                                <!-- Product Quantity -->
+                                <div>
+                                    <div style="font-family:serif;font-weight:bold;font-size:20px;">Số Lượng</div>
+                                    <input style="width:60px;height:35px;font-size:15px; text-align:center; font-weight:bold; background-color:#fffffa;" class="input-group-text" type="number" name="soluongsp" value="1" min="1" />
+
+                                </div>
+                            </div>
+                            <div style="border-top: 1px solid #c0bbbba6;width:570px;"></div>
+                            <div class="button_container">
+                                <button type="submit" class="button cart_button">Thêm vào giỏ hàng</button>
+                                <div class="product_fav"><i class="fas fa-heart"></i></div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="fb-share-button"
+                         data-href="https://techworld.azurewebsites.net/san-pham/@Model.MaHh/@Model.TenHhSeoUrl"
+                         data-layout="button_count"
+                         data-size="large"
+                         style="float:right;margin-top:-30px;margin-right:46px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="product-overview-tab" style="font-family:serif;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="product-tab-inner">
+                    <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
+                        <li> <a href="#" class="tablinks" onclick="openCity(event, 'description')" id="defaultOpen" data-toggle="tab"> Chi tiết Sản phẩm </a> </li>
+                        <li> <a href="#" class="tablinks" onclick="openCity(event, 'reviews')" data-toggle="tab">Đánh giá</a> </li>
+                    </ul>
+                    <div id="productTabContent" style="margin-top:30px;font-size:16px;">
+                        <div id="description" class="tabcontent">
+                            <div class="std">
+                                @Html.Raw(Model.MoTa)
+                            </div>
+                        </div>
+                        <div id="reviews" class="tabcontent">
+                            <div class="col-sm-12 col-lg-12 col-md-12">
+                                <div class="form-area">
+
+                                    <form asp-controller="HangHoa" asp-action="BinhLuan" asp-route-mahh="@Model.MaHh">
+                                        @if (ViewBag.UserExit != null)
+                                        {
+                                            <div class="alert alert-danger" role="alert">
+                                                Vui lòng đăng nhập để đăng bình luận của bạn!!!
+                                            </div>
+                                        }
+                                        <div class="form-element">
+                                            <label>Thêm Đánh Giá</label>
+                                            <textarea placeholder="Viết đánh giá cho sản phẩm này ..." style="border: solid 1px #0e8ce4;" name="binhluan"></textarea>
+                                        </div>
+                                        <div>
+                                            <button class="button submit" title="Submit Review" type="submit" style="height: 40px;width: 100px; color: white;margin-left: 250px;margin-top: 20px;margin-bottom: 37px;"><span><i class="fa fa-thumbs-up"></i> &nbsp;Đánh giá</span></button>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+
+                                @{
+                                    TechWorld_2Context db = new TechWorld_2Context();
+                                    List<BinhLuanSp> binhluanSP = db.BinhLuanSp.Where(p => p.MaHh == Model.MaHh).OrderByDescending(p => p.NgayBl).ToList();
+                                }
+                                @foreach (var item in binhluanSP)
+                                {
+
+                                    <div class="bootstrap-tab-text-grid">
+
+                                        <div class="bootstrap-tab-text-grid-left">
+                                            @{
+                                                KhachHang kh = db.KhachHang.SingleOrDefault(p => p.MaKh == item.MaKh);
+                                            }
+                                            <a><img style="width:80px;height:80px;" src="~/images/Avata/@kh.Hinh" class="img-responsive" /></a>
+                                        </div>
+                                        <div class="bootstrap-tab-text-grid-right">
+                                            <ul>
+                                                <li><a href="#" style="font-size:18px;">@kh.HoTen</a></li>
+                                                <li style="font-size:small"><span>@item.NgayBl</span></li>
+                                            </ul>
+                                            <p style="font-size:18px;">
+                                                @item.NoiDung
+                                            </p>
+                                        </div>
+                                        <div style="border-top: 1px solid #e5e5e5;"></div>
+                                        <div class="clearfix"> </div>
+                                        <br />
+                                    </div>
+
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Sản phẩm gợi ý-->
+<div class="viewed">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="viewed_title_container">
+                    <h3 class="viewed_title" style="font-family:serif; font-weight:bold;font-size:30px;">Sản Phẩm Gợi Ý</h3>
+                    <div class="viewed_nav_container">
+                        <div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+
+                <div class="viewed_slider_container">
+
+                    <!-- Recently Viewed Slider -->
+
+                    <div class="owl-carousel owl-theme viewed_slider">
+
+                        <!-- Recently Viewed Item -->
+                        @{
+                            List<HangHoa> hh = db.HangHoa.ToList();
+                            Random rd = new Random();
+                            List<HangHoa> hh_rd = hh.OrderBy(x => rd.Next()).ToList();
+                        }
+                        @foreach (var item in hh_rd)
+                        {
+                            <div class="owl-item">
+                                <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center" style="height:270px;">
+                                    <div class="viewed_image"><a href="/san-pham/@item.MaHh/@item.TenHhSeoUrl"><img src="~/HangHoa/@item.Hinh" alt=""></a></div>
+                                    <div class="viewed_content text-center">
+                                        @{
+                                            double giadagiam = item.DonGia * (1 - item.GiamGia);
+                                        }
+                                        <div class="viewed_price">@giadagiam.ToString("#,##0") đ<br /><span>@item.DonGia.ToString("#,##0") đ</span></div>
+                                        <div class="viewed_name" style="overflow:hidden; width:77%;max-height:40px;text-align:center;"><a href="/san-pham/@item.MaHh/@item.TenHhSeoUrl">@item.TenHh</a></div>
+                                    </div>
+                                    @{
+                                        if (item.SoLuong > 10)
+                                        {
+                                            double gg = item.GiamGia * 100;
+                                            if (gg == 0)
+                                            {
+                                                <ul class="item_marks">
+                                                    <li></li>
+                                                </ul>
+                                            }
+                                            else
+                                            {
+                                                <ul class="item_marks">
+                                                    <li class="item_mark item_discount">-@gg%</li>
+                                                </ul>
+                                            }
+
+                                        }
+                                        else if (item.SoLuong > 0)
+                                        {
+                                            <ul class="item_marks">
+                                                <li class="item_mark item_discount" style="color:yellow;width:67px;">Sắp hết hàng</li>
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <ul class="item_marks">
+                                                <li class="item_mark item_discount" style="background-color:#d5d8da;color:red;width:67px;">Đã hết hàng</li>
+                                            </ul>
+                                        }
+                                    }
+
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>

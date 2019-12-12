@@ -1,0 +1,89 @@
+﻿@model TECHWORLD_1.Models.NhanVien
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+
+
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Dashboard <small>reports & statistics</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a asp-action="Index" asp-controller="AdminHome">Trang chủ</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-controller="NhanViens" asp-action="Index">Nhân Viên</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-controller="NhanViens" asp-action="Delete">Xóa</a>
+                </li>
+            </ul>
+            <div class="page-toolbar">
+                <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                    <i class="icon-calendar"></i>&nbsp;
+                    <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS -->
+
+        <h3 style="color:red;">Bạn có chắc muốn xóa?</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Mã Loại</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.MaNv) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tên Loại</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.HoTen) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mật khẩu</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.MatKhau) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.Email) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Phân quyền</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.MaPqNavigation.MaPq) " readonly />
+
+                </div>              
+
+            </div>
+        </div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="MaNv" />
+            <input type="submit" value="Delete" class="btn btn-default" style="background-color:#389bcf; color:white;" /> |
+        </form>
+        <div>
+            <a asp-action="Index" style="font-size:17px; text-decoration: none;">Quay lại danh sách</a>
+        </div>
+
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix">
+        </div>
+
+    </div>
+</div>
+<!-- END CONTENT -->

@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Liên Hệ";
+    Layout = "~/Views/Shared/_frontEnd.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/styles/contact_styles.css">
+<link rel="stylesheet" type="text/css" href="~/styles/contact_responsive.css">
+<!-- Contact Info -->
+
+<div class="contact_info">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="contact_info_container d-flex flex-lg-row flex-column justify-content-between align-items-between">
+
+                    <!-- Contact Item -->
+                    <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                        <div class="contact_info_image"><img src="~/images/contact_1.png" alt=""></div>
+                        <div class="contact_info_content">
+                            <h4 class="contact_info_title" style="font-family:serif;font-weight:bold;font-size:16px;">Điện thoại</h4>
+                            <h5 class="contact_info_text" style="font-weight:400;">+84 0909000999</h5>
+                        </div>
+                    </div>
+
+                    <!-- Contact Item -->
+                    <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                        <div class="contact_info_image"><img src="~/images/contact_2.png" alt=""></div>
+                        <div class="contact_info_content">
+                            <h4 class="contact_info_title" style="font-family:serif;font-weight:bold;font-size:16px;">Email</h4>
+                            <h5 class="contact_info_text" style="font-weight:400;">techworld@gmail.com</h5>
+                        </div>
+                    </div>
+
+                    <!-- Contact Item -->
+                    <div class="contact_info_item d-flex flex-row align-items-center justify-content-start">
+                        <div class="contact_info_image"><img src="~/images/contact_3.png" alt=""></div>
+                        <div class="contact_info_content">
+                            <h4 class="contact_info_title" style="font-family:serif;font-weight:bold;font-size:16px;">Địa chỉ</h4>
+                            <h5 class="contact_info_text" style="font-weight:400;">280, An Dương Vương, quận 5, TP. HCM, Việt Nam</h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Form -->
+
+<div class="contact_form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="contact_form_container">
+                    <div class="contact_form_title" style="font-family:serif;font-size:40px; font-weight:bold;">Liên Hệ</div>
+                    <form asp-controller="LienHe" asp-action="Index" method="post" id="contact_form">
+
+                        <div class="contact_form_text">
+                            <textarea id="contact_form_message" name="phanhoikh" class="text_field contact_form_message" rows="4" placeholder="Viết gì đó cho chúng tôi" required="required" data-error="Please, write us a message." style="border: solid 1px #0e8ce4;"></textarea>
+                        </div>
+                        <div class="contact_form_button">
+                            @if (ViewBag.Exit != null)
+                            {
+                                if (ViewBag.Exit == true)
+                                {
+                                    <button type="submit" class="button contact_submit_button" name="submit" id="submit1" onclick="Submit1(submit1);">Gửi</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="button contact_submit_button" name="submit" id="submit2" onclick="Submit2(submit2);">Gửi</button>
+                                }
+                            }
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel" style="margin-top:17px;"></div>
+</div>
+
+<!-- Map -->
+
+<div class="contact_map">
+    <div id="google_map" class="google_map">
+        <div class="map_container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.651110644807!2d106.68001421541548!3d10.761348962412967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b888ab357%3A0xc469f6e800231314!2zMjgwIEFuIETGsMahbmcgVsawxqFuZywgUGjGsOG7nW5nIDQsIFF14bqtbiA1LCBI4buTIENow60gTWluaCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1544176706071" width="100%" height="490" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Submit1(submit1) {
+        alert("Thông tin của bạn đã được gửi đi thành công!");
+    }
+    function Submit2(submit2) {
+        alert("Đăng nhập để gửi phản hồi cho chúng tôi!!!");
+    }
+</script>
+<script src="~/js/contact_custom.js"></script>

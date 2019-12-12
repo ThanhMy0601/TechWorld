@@ -1,0 +1,176 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--STYLE-->
+<style>
+    /*EXCEL*/
+    .select_export_excel_border {
+        border: 0px solid;
+        text-align: center;
+        width: 72px;
+        height: 35px;
+        padding: 5px;
+        background: #058905;
+        float: left;
+    }
+
+    .hover_select_export_excel_border:hover {
+        background: #63cc63;
+    }
+    /*CSV*/
+    .select_export_csv_border {
+        border: 0px solid;
+        text-align: center;
+        width: 72px;
+        height: 35px;
+        padding: 5px;
+        background: #0784c2;
+        float: left;
+        margin-left: 7px;
+    }
+
+    .hover_select_export_csv_border:hover {
+        background: #51b0df;
+    }
+    /*PRINT*/
+    .select_export_print_border {
+        border: 0px solid;
+        text-align: center;
+        width: 72px;
+        height: 35px;
+        padding: 5px;
+        background: #747070;
+        float: left;
+        margin-left: 7px;
+    }
+
+    .hover_select_export_print_border:hover {
+        background: #a59f9f;
+    }
+    /*Border*/
+    .div_boder_payment {
+        padding-top: 22px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid #c9c9c9;
+        font-size: 11px;
+        border-color: #ddd;
+    }
+</style>
+
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+
+
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Dashboard <small>reports & statistics</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a asp-controller="AdminHome" asp-action="Index">Trang chủ</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-controller="ExportExcels" asp-action="Index">Export & Subcride</a>
+                </li>
+            </ul>
+            <div class="page-toolbar">
+                <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                    <i class="icon-calendar"></i>&nbsp;
+                    <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS -->
+
+        <div>
+            <div class="select_export_excel_border hover_select_export_excel_border">
+                <span class="glyphicon glyphicon-download-alt" style="color:white;"></span>
+                <a asp-controller="MailChimp" asp-action="Excel" style="font-weight:bold;color:white;text-decoration:none;margin-left:3px;">Excel</a>
+            </div>
+            <div class="select_export_csv_border hover_select_export_csv_border">
+                <span class="glyphicon glyphicon-download-alt" style="color:white;"></span>
+                <a asp-controller="MailChimp" asp-action="CSV" style="font-weight:bold;color:white;text-decoration:none;margin-left:3px;">CSV</a>
+            </div>
+            <div class="select_export_print_border hover_select_export_print_border">
+                <span class="glyphicon glyphicon-print" style="color:white;"></span>
+                <a asp-controller="MailChimp" asp-action="Print" style="font-weight:bold;color:white;text-decoration:none;margin-left:3px;">Print</a>
+            </div>
+        </div>
+        <div class="div_boder_payment"></div>
+        <div class="note note-danger" style="margin-top: 25px;background-color:#daf9d3;border-color: #79b37a;color:#888b8f;">
+            <p style="font-size:16px;">
+                NOTE: Đăng ký thông tin để khách hàng nhận Email quảng cáo thông qua MailChimp
+            </p>
+        </div>
+        <div>
+            <!-- Begin Mailchimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                #mc_embed_signup {
+                    background: #82c0f5;
+                    clear: left;
+                    font: 14px Helvetica,Arial,sans-serif;
+                    width: 750px;
+                    margin-left: 230px;
+                }
+                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+            </style>
+            <div id="mc_embed_signup" style="border-radius: 5px;">
+                <form action="https://gmail.us3.list-manage.com/subscribe/post?u=e4988ee59c84b4a4ea2743680&amp;id=83b9711699" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <h2 style="font-size:25px;color:wheat;">Subscribe MailChimp</h2>
+                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                        <div class="mc-field-group">
+                            <label for="mce-EMAIL">
+                                Email Address  <span class="asterisk">*</span>
+                            </label>
+                            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                        </div>
+                        <div class="mc-field-group">
+                            <label for="mce-MMERGE7">First Name </label>
+                            <input type="text" value="" name="MMERGE7" class="" id="mce-MMERGE7">
+                        </div>
+                        <div class="mc-field-group">
+                            <label for="mce-LNAME">Last Name </label>
+                            <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+                        </div>
+                        <div class="mc-field-group size1of2">
+                            <label for="mce-BIRTHDAY-month">Birthday </label>
+                            <div class="datefield">
+                                <span class="subfield monthfield"><input class="birthday " type="text" pattern="[0-9]*" value="" placeholder="MM" size="2" maxlength="2" name="BIRTHDAY[month]" id="mce-BIRTHDAY-month"></span> /
+                                <span class="subfield dayfield"><input class="birthday " type="text" pattern="[0-9]*" value="" placeholder="DD" size="2" maxlength="2" name="BIRTHDAY[day]" id="mce-BIRTHDAY-day"></span>
+                                <span class="small-meta nowrap">( mm / dd )</span>
+                            </div>
+                        </div>
+                        <div id="mce-responses" class="clear">
+                            <div class="response" id="mce-error-response" style="display:none"></div>
+                            <div class="response" id="mce-success-response" style="display:none"></div>
+                        </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e4988ee59c84b4a4ea2743680_83b9711699" tabindex="-1" value=""></div>
+                        <div class="clear" style="margin-left:290px;"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" style="width:117px;height:50px;background-color:#0d86c2;"></div>
+                    </div>
+                </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+            <script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[7]='MMERGE7';ftypes[7]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='MMERGE6';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+        </div>
+
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix">
+        </div>
+
+    </div>
+</div>
+<!-- END CONTENT -->

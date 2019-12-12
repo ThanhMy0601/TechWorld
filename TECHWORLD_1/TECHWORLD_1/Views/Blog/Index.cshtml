@@ -1,0 +1,47 @@
+﻿@model IEnumerable<TECHWORLD_1.Models.Blog>
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_frontEnd.cshtml";
+}
+
+<!-- Home -->
+
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll"><img src="~/images/shop_background.jpg"/></div>
+    <div class="home_overlay"></div>
+    <div class="home_content d-flex flex-column align-items-center justify-content-center">
+        <h2 class="home_title" style="font-family:serif;font-weight:bold;font-size:67px;color:#495057c9;">Technological Blog</h2>
+    </div>
+</div>
+
+<!-- Blog -->
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="blog_posts d-flex flex-row align-items-start justify-content-between">
+                    @{
+                        TechWorld_2Context db = new TechWorld_2Context();
+                        List<Blog> blog = db.Blog.ToList();
+                    }
+                    @foreach (var item in blog)
+                    {
+                        <!-- Blog post -->
+                        <div class="blog_post">
+                            <div class="blog_image"><img src="~/images/Blog/@item.Hinh"/></div>
+                            <div class="blog_text">@item.TieuDe</div>
+                            
+                            <div class="blog_button"><a asp-controller="Blog" asp-action="BlogDetails" asp-route-matt="@item.MaTt">Tiếp tục đọc</a></div>
+                                                       
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

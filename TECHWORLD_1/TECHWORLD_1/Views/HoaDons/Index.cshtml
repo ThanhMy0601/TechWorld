@@ -1,0 +1,122 @@
+﻿@model IEnumerable<TECHWORLD_1.Models.HoaDon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+
+
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Dashboard <small>reports & statistics</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a asp-controller="AdminHome" asp-action="Index">Trang chủ</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-action="Index">Đơn Hàng</a>
+                </li>
+            </ul>
+            <div class="page-toolbar">
+                <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                    <i class="icon-calendar"></i>&nbsp;
+                    <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS -->
+
+        <div class="tab-pane" id="tab_images">
+            <div class="row">
+                <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12">
+                </div>
+            </div>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr role="row" class="heading">
+                        <th width="4%" style="text-align:center;">
+                            STT
+                        </th>
+                        <th width="6%" style="text-align:center;">
+                            Mã Đơn Hàng
+                        </th>
+                        <th width="6%" style="text-align:center;">
+                            Mã Khách Hàng
+                        </th>
+                        <th width="11%" style="text-align:center;">
+                            Ngày Đặt Hàng
+                        </th>
+                        <th width="13%" style="text-align:center;">
+                            Tổng Tiền Đơn Hàng
+                        </th>
+                        <th width="12%" style="text-align:center;">
+                            Phương Thức Thanh Toán
+                        </th>
+                        <th width="10%" style="text-align:center;">
+                            Tình Trạng
+                        </th>
+                        <th width="10%" style="text-align:center;">
+                            Trạng Thái
+                        </th>
+                        <th width="6%" style="text-align:center;">
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 1;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="text-align:center;">@i</td>
+                            <td style="text-align:center;">@Html.DisplayFor(modelItem => item.MaHd)</td>
+                            <td style="text-align:center;">@Html.DisplayFor(modelItem => item.MaKh)</td>
+                            <td style="text-align:center;">
+                                @Html.DisplayFor(modelItem => item.NgayDat)
+                            </td>
+                            <td style="text-align:center;"> @Convert.ToDouble(item.TongThucThu).ToString("#,##0") đ</td>
+                            <td style="text-align:center;">
+                                @Html.Raw(item.PhuongThucThanhToan == 0 ? "<strong style='color:#362725;'>Khi nhận hàng</strong>" : "<strong style='color:#05557c;'>Qua Paypal</strong>")
+                            </td>
+                            <td style="text-align:center;">
+                                <a asp-action="ChangeTinhTrangTT" asp-route-id="@item.MaHd" class="btn-active" style="text-decoration: none;">
+                                    @Html.Raw(item.TinhTrangThanhToan == 0 ? "<strong style='color:red;'>Chưa thanh toán</strong>" : "<strong style='color:green;'>Đã thanh toán</strong>")
+                                </a>
+                            </td>
+                            <td style="text-align:center;">
+                                <a asp-action="ChangeStatus" asp-route-id="@item.MaHd" class="btn-active" style="text-decoration: none;">
+                                    @Html.Raw(item.MaTrangThai == 0 ? "<strong style='color:red;'>Chưa giao hàng</strong>" : "<strong style='color:green;'>Đã giao hàng</strong>")
+                                </a>
+                            </td>
+                            <td style="text-align:center;">
+                                <a class="btn default btn-sm" style="background-color:#26bacaa6; color:white;" asp-action="Details" asp-route-id="@item.MaHd">
+                                    <i class="glyphicon glyphicon-eye-open"></i> Chi tiết
+                                </a>
+                            </td>
+
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix">
+        </div>
+
+    </div>
+</div>
+<!-- END CONTENT -->

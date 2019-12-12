@@ -1,0 +1,187 @@
+﻿
+@{
+    ViewData["Title"] = "Print";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .body-print {
+        margin: 0;
+        background-color: #dad8d84d;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .title-dskh {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        padding-top: 10px;
+    }
+
+    .page {
+        width: 21cm; /*chiều rộng của trang*/
+        min-height: 297mm;
+        padding-top: 2.5cm; /*khoảng cách nội dung so với khung trang*/
+        padding-bottom: 2.5cm;
+        margin: auto; /*cho trang ở giữa màn hình*/
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /*đưởng viên của trang*/
+        padding-left: -15px;
+        padding-right: 16px;
+    }
+
+    .header {
+        overflow: hidden;
+    }
+
+    .company {
+        text-transform: uppercase;
+        background-color: #FFFFFF;
+        float: right;
+        font-size: 13px;
+        margin-right: 48px;
+    }
+
+    .th-print {
+        text-align: center;
+    }
+
+    .footer-left {
+        text-align: center;
+        text-transform: uppercase;
+        padding-top: 24px;
+        width: 50%;
+        float: left;
+        font-size: 12px;
+    }
+
+    .footer-right {
+        text-align: center;
+        text-transform: uppercase;
+        padding-top: 24px;
+        width: 50%;
+        font-size: 12px;
+        float: right;
+    }
+
+    .TableData {
+        border-collapse: collapse;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+
+        .TableData TH {
+            background: rgba(0,0,255,0.1);
+            border: solid 1px #ccc;
+        }
+
+        .TableData TR {
+            height: 24px;
+            border: 1px solid #d3d3d3;
+        }
+
+            .TableData TR TD {
+                padding-right: 2px;
+                padding-left: 2px;
+                border: 1px solid #d3d3d3;
+            }
+
+        .TableData .tong {
+            text-align: right;
+            font-weight: bold;
+            text-transform: uppercase; /*biến đổi thành chữ hoa*/
+            padding-right: 4px;
+        }
+</style>
+
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+
+
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Dashboard <small>reports & statistics</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a asp-controller="AdminHome" asp-action="Index">Trang chủ</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-controller="ExportExcels" asp-action="Index">Export & Subcride</a>
+                </li>
+            </ul>
+            <div class="page-toolbar">
+                <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                    <i class="icon-calendar"></i>&nbsp;
+                    <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS -->
+
+        <body class="body-print" onload="window.print();">
+
+
+            <div id="page" class="page">
+                <div class="header">
+                    <div class="company">TechWorld Thế Giới Công Nghệ Hiện Đại</div>
+                </div>
+                <br />
+                <div class="title-dskh">
+                    DANH SÁCH KHÁCH HÀNG
+                    <br />
+                    -------oOo-------
+                </div>
+                <br />
+                <br />
+                <br />
+
+                <table class="TableData" style="width:720px;">
+                    <tr>
+                        <th width="5%" class="th-print">STT</th>
+                        <th width="18%" class="th-print">Tên Khách Hàng</th>
+                        <th width="16%" class="th-print">Email</th>
+                        <th width="21%" class="th-print">Địa Chỉ</th>
+                        <th width="13%" class="th-print">Số Điện Thoại</th>
+                        <th width="13%" class="th-print">Ngày Sinh</th>
+                        @{
+                            TechWorld_2Context db = new TechWorld_2Context();
+                            List<KhachHang> kh = db.KhachHang.ToList();
+                        }
+                        @foreach (var item in kh)
+                        {
+                        <tr>
+                            <td style="text-align:center;">@item.MaKh</td>
+                            <td style="text-align:center;">@item.HoTen</td>
+                            <td style="text-align:center;">@item.Email</td>
+                            <td>@item.DiaChi</td>
+                            <td style="text-align:center;">@item.DienThoai</td>
+                            <td style="text-align:center;">@item.NgaySinh</td>
+                        </tr>
+                    }
+
+
+                    </table>
+
+                    <div class="footer-right">
+                        TP.HCM, @DateTime.Now <br />
+                    </div>
+                </div>
+            </body>
+
+            <!-- END DASHBOARD STATS -->
+            <div class="clearfix">
+            </div>
+
+        </div>
+    </div>
+    <!-- END CONTENT -->

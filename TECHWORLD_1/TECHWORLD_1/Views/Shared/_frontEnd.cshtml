@@ -1,0 +1,550 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TechWorld</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="OneTech shop project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="YHidJm1SLVzneu-WWMtjc7sS37BfTPNLiLWVyRI-aDQ" />
+
+    @RenderSection("metasocials", required: false)
+    <link rel="shortcut icon" href="~/img-title.png" />
+    <link rel="stylesheet" type="text/css" href="~/styles/bootstrap4/bootstrap.min.css" />
+    <link href="~/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/plugins/OwlCarousel2-2.2.1/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" />
+    <link rel="stylesheet" type="text/css" href="~/plugins/OwlCarousel2-2.2.1/animate.css" />
+    <link rel="stylesheet" type="text/css" href="~/plugins/slick-1.8.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/styles/main_styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/styles/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/shop_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/shop_responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/styles/product_styles.css" />
+    <link rel="stylesheet" type="text/css" href="~/styles/product_responsive.css" />
+    <link rel="stylesheet" type="text/css" href="~/styles/cart_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/cart_responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/blog_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/blog_responsive.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/blog_single_styles.css">
+    <link rel="stylesheet" type="text/css" href="~/styles/blog_single_responsive.css">
+    <!-- Begin Mailchimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <!--// Begin Mailchimp Signup Form -->
+
+    <style>
+        ul.social-icons li a.facebook {
+            background: url(../images/img-sp.png) no-repeat -2px -5px;
+            display: block;
+            width: 25px;
+            height: 25px;
+        }
+
+        ul.social-icons li a.twitter {
+            background: url(../images/img-sp.png) no-repeat -49px -13px;
+            display: block;
+            width: 25px;
+            height: 25px;
+        }
+
+        ul.social-icons li a.g {
+            background: url(../images/img-sp.png) no-repeat -94px -12px;
+            display: block;
+            width: 25px;
+            height: 25px;
+        }
+
+        ul.social-icons li a.instagram {
+            background: url(../images/img-sp.png) no-repeat -139px -12px;
+            display: block;
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+
+    <!--Google Analytics-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145752302-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-145752302-1');
+    </script>
+    <!--//Google Analytics-->
+    <!--connect with Mailchimp-->
+    <script id="mcjs">!function (c, h, i, m, p) { m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p) }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/e4988ee59c84b4a4ea2743680/73d9ca2241502cc8436312b57.js");</script>
+    <!--//connect with Mailchimp-->
+    <!--Plugin support TalkTo-->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5d555b2d77aa790be32f0ac1/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <!--//Plugin support TalkTo-->
+    <!--Plugin button-->
+    <script type='text/javascript' src='http://techworld.azurewebsites.net' inline-share-buttons' async='async'></script>
+    <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5d53c93b4cd0540012f2035a&product=" sticky-share-buttons"></script>
+    <!--//Plugin button-->
+
+</head>
+
+<body>
+    <!--LIVE CHAT SUPPORT-->
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v4.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!-- Your customer chat code -->
+    <div class="fb-customerchat"
+         attribution=setup_tool
+         page_id="103291864352843"
+         logged_in_greeting="Bạn đang cần được tư vấn hãy liên hệ với chúng tôi"
+         logged_out_greeting="Bạn đang cần được tư vấn hãy liên hệ với chúng tôi">
+    </div>
+
+    <!--//LIVE CHAT SUPPORT-->
+    <!--SHARED HÀNG HÓA-->
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+    <!--//SHARED HÀNG HÓA-->
+
+    @{
+        TechWorld_2Context db = new TechWorld_2Context();
+    }
+
+    <div class="super_container">
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <!-- Top Bar -->
+
+            <div class="top_bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col d-flex flex-row">
+                            <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="~/images/phone.png" alt=""></div><a style="font-weight:400; color:#a19a9a;">+84 909000999</a></div>
+                            <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="~/images/mail.png" alt=""></div><a href="#" style="text-decoration: none;font-weight:400; color:#a19a9a;">techworld@gmail.com</a></div>
+                            @if (Context.Session.Get<KhachHang>("Username") == null)
+                            {
+                                <div class="top_bar_contact_item">
+                                    <div class="top_bar_user">
+                                        <div class="user_icon"><img src="~/images/user.svg" alt=""></div>
+                                        <div><a asp-controller="Register" asp-action="Index" style="text-decoration: none;font-weight:400; color:#a19a9a;">Đăng ký</a></div>
+                                        <div><a asp-controller="Login" asp-action="Index" style="text-decoration: none;font-weight:400; color:#a19a9a;">Đăng nhập</a></div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                KhachHang kh = Context.Session.Get<KhachHang>("Username");
+                                <div class="top_bar_contact_item">
+                                    <div class="top_bar_user" style="font-weight:400; color:#a19a9a;">
+                                        <div class="user_icon"><img src="~/images/user.svg" alt=""></div>
+                                        <div><a asp-controller="Register" asp-action="Index" style="text-decoration: none;font-weight:400; color:dodgerblue;">@kh.TaiKhoan</a></div>
+                                        <div><a asp-controller="Login" asp-action="Logout" style="text-decoration: none;font-weight:400; color:red;">Đăng xuất</a></div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="top_bar_content ml-auto">
+                                <ul class="standard_dropdown top_bar_dropdown social-icons" style="padding-top:18px;padding-right:40px;">
+                                    <li><a href="https://www.facebook.com/techworldthegioicongnghehiendai" class="facebook"></a></li>
+                                    <li><a href="#" class="twitter"></a></li>
+                                    <li><a href="#" class="g"></a></li>
+                                    <li><a href="#" class="instagram"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Main -->
+
+            <div class="header_main">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Logo -->
+                        <div class="col-lg-2 col-sm-3 col-3 order-1">
+                            <div class="logo_container">
+                                <div class="logo"><a asp-controller="Home" asp-action="Index" style="font-size:60px; font-family:serif;font-weight: 900;text-decoration: none;">TechWorld</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Search -->
+                        <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                            <div class="header_search">
+                                <div class="header_search_content">
+                                    <div class="header_search_form_container" style="margin-left:115px; width:454px;">
+                                        <form asp-controller="HangHoa" asp-action="Search" class="header_search_form clearfix">
+                                            <input type="search" required="required" class="header_search_input" placeholder="Tìm kiếm sản phẩm..." name="searchstring" style="font-family:serif;font-size:16px;width:399px">
+                                            <span class="custom_dropdown_placeholder clc"></span>
+                                            <ul class="custom_list clc"></ul>
+                                            <button type="submit" class="header_search_button trans_300" value="Submit"><img src="~/images/search.png" alt=""></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wishlist -->
+                        <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+                            <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                                <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+
+                                </div>
+
+                                <!-- Cart -->
+
+                                @if (Context.Session.Get<List<CartItem>>("GioHang") != null) //trong giỏ hàng thì có nhiều mặt hàng sản phẩm khác nhau nên sài list là lấy ra danh sách các mặt hàng đó (một mặt hàng là một CartItem)
+                                {
+                                    List<CartItem> giohang = Context.Session.Get<List<CartItem>>("GioHang"); //List<CastItem> được hiểu như là một vecto hay mảng động dùng để lưu trữ liên tiếp
+                                    double tongtien = 0;
+                                    double tongsoluongsp = 0;
+                                    foreach (var item in giohang)
+                                    {
+                                        tongtien += item.ThanhTien; //ThanhTien=GiaBan*SoLuong(trong CartItem)
+                                        tongsoluongsp += item.SoLuong;// Soluong là số lượng của một mặt hàng trong CartItem
+                                    }
+                                    <div class="cart">
+                                        <div class="cart_container d-flex flex-row align-items-center justify-content-end" style="padding-right:90px;">
+                                            <div class="cart_icon">
+                                                <img src="~/images/cart.png" alt="">
+                                                <div class="cart_count"><span>@tongsoluongsp</span></div>
+                                            </div>
+                                            <div class="cart_content">
+                                                <div class="cart_text"><a asp-controller="GioHang" asp-action="Index" style="text-decoration: none;">Giỏ hàng</a></div>
+                                                <div class="cart_price">@tongtien.ToString("#,##0") đ</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="cart">
+                                        <div class="cart_container d-flex flex-row align-items-center justify-content-end" style="padding-right:90px;">
+                                            <div class="cart_icon">
+                                                <img src="~/images/cart.png" alt="">
+                                                <div class="cart_count"><span>0</span></div>
+                                            </div>
+                                            <div class="cart_content">
+                                                <div class="cart_text"><a asp-controller="GioHang" asp-action="Index" style="text-decoration: none;">Giỏ hàng</a></div>
+                                                <div class="cart_price">0 đ</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+
+            <nav class="main_nav">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+
+                            <div class="main_nav_content d-flex flex-row">
+
+                                <!-- Categories Menu -->
+
+                                <div class="cat_menu_container">
+                                    <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+                                        <div class="cat_burger"><span></span><span></span><span></span></div>
+                                        <div class="cat_menu_text"><a asp-controller="HangHoa" asp-action="Index" style="color:white;">Các loại mặt hàng</a></div>
+                                    </div>
+
+                                    <ul class="cat_menu">
+                                        @{
+
+                                            List<Loai> loai = db.Loai.ToList(); //lấy danh danh sách loại
+                                        }
+                                        @foreach (var item in loai)
+                                        {
+                                            <li><a asp-controller="HangHoa" asp-action="Index" asp-route-loai="@item.MaLoai" style="text-decoration: none;font-family:serif;font-weight:300;font-size:18px;">@item.TenLoai<i class="fas fa-chevron-right ml-auto"></i></a></li>
+                                        }
+
+                                    </ul>
+                                </div>
+
+                                <!-- Main Nav Menu -->
+
+                                <div class="main_nav_menu ml-auto">
+                                    <ul class="standard_dropdown main_nav_dropdown">
+                                        <li><a asp-controller="Home" asp-action="Index" style="text-decoration: none;">Trang Chủ<i class="fas fa-chevron-down"></i></a></li>
+                                        <li class="hassubs">
+                                            <a href="#" style="text-decoration: none;">Hot Deals</a>
+                                        </li>
+                                        <li><a asp-controller="ThanhToan" asp-action="Index" style="text-decoration: none;">Thanh Toán</a></li>
+                                        <li class="hassubs">
+                                            <a asp-controller="Blog" asp-action="Index" style="text-decoration: none;">Blog</a>
+                                        </li>
+                                        <li class="hassubs">
+                                            <a asp-controller="LienHe" asp-action="Index" style="text-decoration: none;">Liên Hệ</a>
+                                        </li>
+                                        <li><a asp-controller="Home" asp-action="About" style="text-decoration: none;">About Us</a></li>
+
+                                    </ul>
+                                </div>
+
+                                <!-- Menu Trigger -->
+
+                                <div class="menu_trigger_container ml-auto">
+                                    <div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+                                        <div class="menu_burger">
+                                            <div class="menu_trigger_text">menu</div>
+                                            <div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+
+        <!-- Banner -->
+
+
+
+
+        @RenderBody()
+
+        <!-- Brands -->
+
+        <div class="brands">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="brands_slider_container">
+
+                            <!-- Brands Slider -->
+
+                            <div class="owl-carousel owl-theme brands_slider">
+
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_1.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_2.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_3.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_4.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_5.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_6.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_7.jpg" alt=""></div></div>
+                                <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="~/images/brands_8.jpg" alt=""></div></div>
+
+                            </div>
+
+                            <!-- Brands Slider Navigation -->
+                            <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+                            <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <!-- Begin Mailchimp Signup Form -->
+        <div class="newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
+                            <div class="newsletter_title_container">
+                                <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
+                                <div class="newsletter_title">Đăng ký để nhận bản tin của chúng tôi</div>
+                                <div class="newsletter_text"><p>...và nhận phiếu giảm giá 20% cho lần mua săm đầu tiên.</p></div>
+                            </div>
+                            <div class="newsletter_content clearfix">
+                                <form class="newsletter_form validate" action="https://gmail.us3.list-manage.com/subscribe/post?u=e4988ee59c84b4a4ea2743680&amp;id=83b9711699" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+                                    <div id="mc_embed_signup_scroll">
+                                        <div class="mc-field-group">
+                                            <input type="email" value="" name="EMAIL" class="newsletter_input" required="required" placeholder="Enter your email address" id="mce-EMAIL">
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div id="mce-responses" class="clear">
+                                        <div class="response" id="mce-error-response" style="display:none; color:red;"></div>
+                                        <div class="response" id="mce-success-response" style="display:none; color:dodgerblue;"></div>
+                                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_e4988ee59c84b4a4ea2743680_83b9711699" tabindex="-1" value=""></div>
+                                    <button class="newsletter_button">Subscribe</button>
+                                </form>
+                                <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 footer_col">
+                        <div class="footer_column footer_contact">
+                            <div class="logo_container">
+                                <div class="logo"><a href="#">TechWorld</a></div>
+                            </div>
+                            <div class="footer_title">HotLine - Gọi cho chúng tôi 24/7</div>
+                            <div class="footer_phone">+84 90 900 0999</div>
+                            <div class="footer_contact_text">
+                                <p>280, An Dương Vương, quận 5</p>
+                                <p>TP. Hồ Chí Minh, Việt Nam</p>
+                            </div>
+                            <div class="footer_social">
+                                <ul>
+                                    <li><a href="https://www.facebook.com/techworldthegioicongnghehiendai"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-google"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 offset-lg-2">
+                        <div class="footer_column">
+                            <h4 class="footer_title" style="font-family:Arial;font-weight:bold;">Sản Phẩm</h4>
+                            <ul class="footer_list">
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Điện thoại</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Laptop</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Tai nghe</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Cameras</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Loa</h5></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="footer_column">
+                            <ul class="footer_list footer_list_2">
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Chuột máy tính</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Máy nghe nhạc</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Máy chơi game</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">Ipad</h5></li>
+                                <li><h5 style="font-family:Arial;font-weight:600;font-size:12px;color: rgba(0,0,0,0.4);">TV</h5></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="footer_column">
+                            <div class="footer_title">Customer Care</div>
+                            <ul class="footer_list">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Order Tracking</a></li>
+                                <li><a href="#">Wish List</a></li>
+                                <li><a href="#">Customer Services</a></li>
+                                <li><a href="#">Returns / Exchange</a></li>
+                                <li><a href="#">FAQs</a></li>
+                                <li><a href="#">Product Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- Copyright -->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                            <div class="copyright_content">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </div>
+                            <div class="logos ml-sm-auto">
+                                <ul class="logos_list">
+                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
+                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
+                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
+                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/styles/bootstrap4/popper.js"></script>
+    <script src="~/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="~/plugins/greensock/TweenMax.min.js"></script>
+    <script src="~/plugins/greensock/TimelineMax.min.js"></script>
+    <script src="~/plugins/scrollmagic/ScrollMagic.min.js"></script>
+    <script src="~/plugins/greensock/animation.gsap.min.js"></script>
+    <script src="~/plugins/greensock/ScrollToPlugin.min.js"></script>
+    <script src="~/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="~/plugins/slick-1.8.0/slick.js"></script>
+    <script src="~/plugins/easing/easing.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="~/plugins/Isotope/isotope.pkgd.min.js"></script>
+    <script src="~/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script src="~/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="~/js/cart_custom.js"></script>
+    <script src="~/js/blog_single_custom.js"></script>
+    <script src="~/js/blog_custom.js"></script>
+
+    <!-- Begin Mailchimp Signup Form -->
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script type='text/javascript'>(function ($) { window.fnames = new Array(); window.ftypes = new Array(); fnames[0] = 'EMAIL'; ftypes[0] = 'email'; fnames[7] = 'MMERGE7'; ftypes[7] = 'text'; fnames[2] = 'LNAME'; ftypes[2] = 'text'; fnames[3] = 'ADDRESS'; ftypes[3] = 'address'; fnames[4] = 'PHONE'; ftypes[4] = 'phone'; fnames[5] = 'BIRTHDAY'; ftypes[5] = 'birthday'; fnames[6] = 'MMERGE6'; ftypes[6] = 'text'; }(jQuery)); var $mcj = jQuery.noConflict(true);</script>
+    <!--// Begin Mailchimp Signup Form -->
+</body>
+
+</html>

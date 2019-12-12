@@ -1,0 +1,63 @@
+﻿@model TECHWORLD_1.Models.Blog
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_frontEnd.cshtml";
+}
+
+<!-- Home -->
+
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-speed="0.8"><img src="~/images/Blog/@Model.Hinh" alt="" style="width: 1527px; height:447px;"/></div>
+</div>
+
+<!-- Single Blog Post -->
+
+<div class="single_post">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="single_post_title">@Model.TieuDe</div>
+                <div class="single_post_text">
+                    <p>@Model.NoiDung1</p>
+                    <div class="single_post_quote text-center">
+                        <div class="quote_image"><img src="~/images/quote.png" alt=""></div>
+                        <div class="quote_text">@Model.NoiDung2</div>
+                        <div class="quote_name">Liam Neeson</div>
+                    </div>
+                    <p>@Model.NoiDung3</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Blog Posts -->
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="blog_posts d-flex flex-row align-items-start justify-content-between">
+                  
+                    @{
+                        TechWorld_2Context db = new TechWorld_2Context();
+                        List<Blog> blog = db.Blog.Take(3).ToList();
+                    }
+                    @foreach (var item in blog)
+                    {
+                        <!-- Blog post -->
+                        <div class="blog_post">
+                            <div class="blog_image"><img src="~/images/Blog/@item.Hinh" alt=""/></div>
+                            <div class="blog_text">@item.TieuDe</div>
+
+                            <div class="blog_button"><a asp-controller="Blog" asp-action="BlogDetails" asp-route-matt="@item.MaTt">Tiếp tục đọc</a></div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

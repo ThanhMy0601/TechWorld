@@ -1,0 +1,105 @@
+﻿@model TECHWORLD_1.Models.HangHoa
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+
+
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Dashboard <small>reports & statistics</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i>
+                    <a asp-controller="AdminHome" asp-action="Index">Trang chủ</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-action="Index">Sản phẩm</a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <a asp-action="Details">ChiTiet</a>
+                </li>
+            </ul>
+            <div class="page-toolbar">
+                <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                    <i class="icon-calendar"></i>&nbsp;
+                    <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN DASHBOARD STATS -->
+
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Mã Sản Phẩm</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.MaHh) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tên Sản Phẩm</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.TenHh) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Hình</label><br />
+                    <img src="~/HangHoa/@Html.DisplayFor(model => model.Hinh)" style="width:97px; height:107px;" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Đơn giá</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.DonGia) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Gía giảm</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.GiamGia) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mô tả</label>
+                    <textarea placeholder="@Html.DisplayFor(model => model.MoTa)" style="height:110px;width:420px;" readonly></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mã loại</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.MaLoaiNavigation.MaLoai) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Mã nhà cung cấp</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.MaNccNavigation.MaNcc) " readonly />
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Số Lượng</label>
+                    <input class="form-control" value="@Html.DisplayFor(model => model.SoLuong) " readonly />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Sản Phẩm Mới</label>                   
+                    <input class="form-control" value="@Html.DisplayFor(model => model.SanPhamMoi) " readonly />
+                </div>
+            </div>
+        </div>
+        <div>
+            <a asp-action="Index" style="font-size:17px; text-decoration: none;">Quay lại danh sách</a>
+        </div>
+
+        <!-- END DASHBOARD STATS -->
+        <div class="clearfix">
+        </div>
+
+    </div>
+</div>
+<!-- END CONTENT -->
